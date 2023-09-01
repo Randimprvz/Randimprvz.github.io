@@ -1,8 +1,9 @@
 body {
 	background-color: #090e17;
 	color: white;
-	font-family: 'monospace';font-size: 40px;font-weight: bold;
+	  font: 1.3rem Inconsolata, monospace;font-size: 40px;font-weight: bold;
 	text-align: center;
+	text-shadow: 0 0 5px #C8C8C8;
 	width: 100%;
 	opacity: 0.8;
 }
