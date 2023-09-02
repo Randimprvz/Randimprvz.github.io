@@ -12,10 +12,11 @@
 	  <p>Let's add opacity to gnome text<br><br>After a fair detour i've just learned that opacity isnt real and my mind is blown.<br><br>
 	     What I mean by this is that the background image you see behind your text, is not continuous with the the rest of the background image but is in fact
 	     retroactively created.<br><br> For example, black text on a white background will produce gray. But lighten that image enough and you will begin to see
-	     the white underneath. However what you are actually seeing is just your letters, there is no 'light shining through so to speak'.<br><br>In effect opacity is functioning 
-	     as a map from opacity percentages to certain mixture ratios between the background and foreground image.<br><br>
+	     the white underneath. However what you are actually seeing is just your letters, there is no 'light shining through' so to speak.<br><br>In effect opacity is functioning 
+	     as a map from opacity percentages to certain mixture ratios between the background and foreground image.<br><br><br>
 	     Now it's time to learn a little bit about how computers display colors. I ended up not doing this at all and merely digging around in the
-	     gnome terminal source.<br><br> There was just one problem though, which is that I think software should be plug and play, and the only way to do that
+	     gnome terminal source. The criterion for whether implementing opacity was viable was whether or not the data structures used to render text included an alpha channel.<br><br>
+	     In tech speak, an alpha channel is a fancy name for opacity.<br><br>I found that the text indeed did use an alpha channel but had hardcoded the opacity to 1 and omitted it as an argument.<br><br> There was just one problem though, which is that I think software should be plug and play, and the only way to do that
 	     in a sane manner is in process alteration.<br><br> There are better debuggers than gdb but gdb is standard on linux, so I will use that.<br><br>
 	     Attaching gdb to gnome terminal just results in a freeze, perhaps becathe entire gui is using gnome? I had noticed that running multiple shells did not result in multiple gnome terminal processes, so perhaps I'm trying to debug the very process I'm using to interact with the gui.<br><br>I realized I knew very little of the GUI stack on linux and some of the workings of X.<br><br>However I had learned that the X session manager communicates with the window manager and opted to explore it on my system.<br><br>Perhaps this could illuminate why gnome needed to be debugged with a separate login session.<br><br></p>
 	<script src="index.js"></script>
